@@ -5315,6 +5315,43 @@ const machine_t machines[] = {
         .snd_device = NULL,
         .net_device = NULL
     },
+    /* This machine also has AMIKEY-2, type 'H'. */
+    {
+        .name = "[SiS 460] Dell System 4XX/P NetPlex",
+        .internal_name = "dell4xxp",
+        .type = MACHINE_TYPE_486_S2,
+        .chipset = MACHINE_CHIPSET_SIS_460,
+        .init = machine_at_dell4xxp_init,
+        .pad = 0,
+        .pad0 = 0,
+        .pad1 = MACHINE_AVAILABLE,
+        .pad2 = 0,
+        .cpu = {
+            .package = CPU_PKG_SOCKET3,
+            .block = CPU_BLOCK_NONE,
+            .min_bus = 25000000,
+            .max_bus = 50000000,
+            .min_voltage = 0,
+            .max_voltage = 0,
+            .min_multi = 0,
+            .max_multi = 2
+        },
+        .bus_flags = MACHINE_AT,
+        .flags = MACHINE_IDE | MACHINE_VIDEO,
+        .ram = {
+            .min = 1024,
+            .max = 32768,
+            .step = 1024
+        },
+        .nvrmask = 127,
+        .kbc = KBC_UNKNOWN,
+        .kbc_p1 = 0,
+        .gpio = 0,
+        .device = &gd5428_onboard_device,
+        .vid_device = NULL,
+        .snd_device = NULL,
+        .net_device = NULL
+    },
     /* Uses an Intel KBC with Phoenix MultiKey KBC firmware. */
     {
         .name = "[SiS 461] DEC DECpc LPV",

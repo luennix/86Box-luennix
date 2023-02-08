@@ -317,6 +317,29 @@ machine_at_pb410a_init(const machine_t *model)
 }
 
 int
+machine_at_dell4xxp_init(const machine_t *model)
+{
+    int ret;
+
+    ret = bios_load_linear("roms/machines/dell4xxP/a02.bin",
+                           0x000e0000, 131072, 0);
+
+    if (bios_only || !ret)
+        return ret;
+
+    machine_at_common_init(model);
+
+    device_add(&sis_85c460_device);
+    device_add(&keyboard_at_ami_device);
+    device_add(&fdc37c651_ide_device);
+
+    if (gfxcard == VID_INTERNAL)
+        device_add(&gd5428_onboard_device);
+
+    return ret;
+}
+
+int
 machine_at_vect486vl_init(const machine_t *model) // has HDC problems
 {
     int ret;
