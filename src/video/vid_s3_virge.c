@@ -82,6 +82,7 @@ enum {
     S3_DIAMOND_STEALTH3D_3000,
     S3_STB_VELOCITY_3D,
     S3_VIRGE_DX,
+    S3_VIRGE_DX_ONBOARD,
     S3_DIAMOND_STEALTH3D_2000PRO,
     S3_VIRGE_GX,
     S3_VIRGE_GX2,
@@ -4154,6 +4155,9 @@ s3_virge_init(const device_t *info)
         case S3_VIRGE_DX:
             bios_fn = ROM_VIRGE_DX;
             break;
+        case S3_VIRGE_DX_ONBOARD:
+            bios_fn = NULL;
+            break;
         case S3_DIAMOND_STEALTH3D_2000PRO:
             bios_fn = ROM_DIAMOND_STEALTH3D_2000PRO;
             break;
@@ -4655,6 +4659,20 @@ const device_t s3_virge_375_pci_device = {
     .close         = s3_virge_close,
     .reset         = s3_virge_reset,
     { .available = s3_virge_375_available },
+    .speed_changed = s3_virge_speed_changed,
+    .force_redraw  = s3_virge_force_redraw,
+    .config        = s3_virge_config
+};
+
+const device_t s3_virge_375_onboard_pci_device = {
+    .name          = "S3 ViRGE/DX (375) On-Board PCI",
+    .internal_name = "virge375_onboard_pci",
+    .flags         = DEVICE_PCI,
+    .local         = S3_VIRGE_DX_ONBOARD,
+    .init          = s3_virge_init,
+    .close         = s3_virge_close,
+    .reset         = s3_virge_reset,
+    { .available = NULL },
     .speed_changed = s3_virge_speed_changed,
     .force_redraw  = s3_virge_force_redraw,
     .config        = s3_virge_config
