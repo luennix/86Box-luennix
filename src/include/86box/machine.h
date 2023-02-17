@@ -581,6 +581,8 @@ extern int machine_at_p54sp4_init(const machine_t *);
 extern int machine_at_sq588_init(const machine_t *);
 extern int machine_at_p54sps_init(const machine_t *);
 
+extern int machine_at_ast62x_init(const machine_t *);
+
 /* m_at_socket7_3v.c */
 extern int machine_at_p54tp4xe_init(const machine_t *);
 extern int machine_at_p54tp4xe_mr_init(const machine_t *);
