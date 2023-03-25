@@ -11430,7 +11430,8 @@ const machine_t machines[] = {
         .snd_device = NULL,
         .net_device = NULL
     },
-    /* Intel BN440FX/DB440FX OEM board */
+    /* Intel BN440FX/DB440FX OEM board with NSC 87307 SIO and LM78 HWM according to technical
+    specifications manual */
     {
         .name = "[i440FX] Compaq Presario 4834",
         .internal_name = "presario4834",
@@ -11454,7 +11455,7 @@ const machine_t machines[] = {
         .bus_flags = MACHINE_PS2_PCI,
         .flags = MACHINE_IDE_DUAL | MACHINE_AV | MACHINE_APM | MACHINE_ACPI,
         .ram = {
-            .min = 8192,
+            .min = 40960,
             .max = 393216,
             .step = 8192
         },

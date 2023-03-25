@@ -115,9 +115,12 @@ machine_at_presario4834_init(const machine_t *model)
     device_add(&i440fx_device);
     device_add(&piix3_device);
     device_add(&keyboard_ps2_ami_pci_device);
-    device_add(&pc87306_device);
+    device_add(&pc87307_device);
     device_add(&intel_flash_bxt_device);
-    device_add(&lm75_1_4a_device);
+    device_add(&lm78_device);
+    hwm_values.fans[0] = 3500;
+    hwm_values.fans[1] = 3500;
+    hwm_values.fans[2] = 3500;
 
     return ret;
 }
