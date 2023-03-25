@@ -90,12 +90,16 @@ machine_at_kn97_init(const machine_t *model)
 }
 
 int
-machine_at_presario4834_init(const machine_t *model)
+machine_at_ibm6888_init(const machine_t *model)
 {
     int ret;
 
-    ret = bios_load_linear("roms/machines/presario4834/WARR6X10.BIN",
-                           0x000c0000, 262144, 0);
+    ret = bios_load_linear_combined2("roms/machines/ibm6888/1017DU0M.BIO",
+                                     "roms/machines/ibm6888/1017DU0M.BI1",
+                                     "roms/machines/ibm6888/1017DU0M.BI2",
+                                     "roms/machines/ibm6888/1017DU0M.BI3",
+                                     "roms/machines/ibm6888/1017DU0M.RCV",
+                                     0x3a000, 128);
 
     if (bios_only || !ret)
         return ret;
@@ -110,14 +114,14 @@ machine_at_presario4834_init(const machine_t *model)
     pci_register_slot(0x0F, PCI_CARD_NORMAL, 3, 4, 1, 2);
     pci_register_slot(0x10, PCI_CARD_NORMAL, 4, 1, 2, 3);
     pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 0, 0, 0, 0);
-    device_add(&s3_virge_375_pci_device);
+    device_add(&s3_trio64v2_dx_onboard_pci_device);
     device_add(&cs4236b_onboard_device);
     device_add(&i440fx_device);
     device_add(&piix3_device);
     device_add(&keyboard_ps2_ami_pci_device);
-    device_add(&pc87306_device);
-    device_add(&intel_flash_bxt_device);
-    device_add(&lm75_1_4a_device);
+    device_add(&pc87307_device);
+    device_add(&intel_flash_bxt_ami_device);
+    device_add(&lm78_device);
 
     return ret;
 }

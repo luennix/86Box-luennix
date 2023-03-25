@@ -11430,13 +11430,13 @@ const machine_t machines[] = {
         .snd_device = NULL,
         .net_device = NULL
     },
-    /* Intel BN440FX/DB440FX OEM board */
+    /* Intel BN440FX/DB440FX IBM OEM board, has PC87307 SIO according to technical specification manual */
     {
-        .name = "[i440FX] Compaq Presario 4834",
-        .internal_name = "presario4834",
+        .name = "[i440FX] IBM IntelliStation M Pro (Type 6888)",
+        .internal_name = "ibm6888",
         .type = MACHINE_TYPE_SLOT1,
         .chipset = MACHINE_CHIPSET_INTEL_440FX,
-        .init = machine_at_presario4834_init,
+        .init = machine_at_ibm6888_init,
         .pad = 0,
         .pad0 = 0,
         .pad1 = MACHINE_AVAILABLE,
@@ -11462,7 +11462,7 @@ const machine_t machines[] = {
         .kbc_device = NULL,
         .kbc_p1 = 0,
         .gpio = 0,
-        .device = &s3_virge_375_pci_device,
+        .device = &s3_trio64v2_dx_onboard_pci_device,
         .fdc_device = NULL,
         .sio_device = NULL,
         .vid_device = NULL,
