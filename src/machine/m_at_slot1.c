@@ -90,6 +90,39 @@ machine_at_kn97_init(const machine_t *model)
 }
 
 int
+machine_at_presario4834_init(const machine_t *model)
+{
+    int ret;
+
+    ret = bios_load_linear("roms/machines/presario4834/WARR6X10.BIN",
+                           0x000c0000, 262144, 0);
+
+    if (bios_only || !ret)
+        return ret;
+
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x08, PCI_CARD_VIDEO, 4, 0, 0, 0);
+    pci_register_slot(0x0D, PCI_CARD_NORMAL, 1, 2, 3, 4);
+    pci_register_slot(0x0E, PCI_CARD_NORMAL, 2, 3, 4, 1);
+    pci_register_slot(0x0F, PCI_CARD_NORMAL, 3, 4, 1, 2);
+    pci_register_slot(0x10, PCI_CARD_NORMAL, 4, 1, 2, 3);
+    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 0, 0, 0, 0);
+    device_add(&s3_virge_375_pci_device);
+    device_add(&cs4236b_onboard_device);
+    device_add(&i440fx_device);
+    device_add(&piix3_device);
+    device_add(&keyboard_ps2_ami_pci_device);
+    device_add(&pc87306_device);
+    device_add(&intel_flash_bxt_device);
+    device_add(&lm75_1_4a_device);
+
+    return ret;
+}
+
+int
 machine_at_lx6_init(const machine_t *model)
 {
     int ret;

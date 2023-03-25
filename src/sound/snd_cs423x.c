@@ -869,6 +869,20 @@ const device_t cs4236b_device = {
     .config        = NULL
 };
 
+const device_t cs4236b_onboard_device = {
+    .name          = "Crystal CS4236B (On-Board)",
+    .internal_name = "cs4236b_onboard",
+    .flags         = DEVICE_ISA | DEVICE_AT,
+    .local         = CRYSTAL_CS4236B | CRYSTAL_NOEEPROM,
+    .init          = cs423x_init,
+    .close         = cs423x_close,
+    .reset         = cs423x_reset,
+    { .available = NULL },
+    .speed_changed = cs423x_speed_changed,
+    .force_redraw  = NULL,
+    .config        = NULL
+};
+
 const device_t cs4237b_device = {
     .name          = "Crystal CS4237B",
     .internal_name = "cs4237b",

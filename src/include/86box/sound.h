@@ -150,6 +150,7 @@ extern const device_t ncr_business_audio_device;
 extern const device_t cs4235_device;
 extern const device_t cs4235_onboard_device;
 extern const device_t cs4236b_device;
+extern const device_t cs4236b_onboard_device;
 extern const device_t cs4237b_device;
 extern const device_t cs4238b_device;
 
