@@ -748,6 +748,7 @@ extern int machine_at_ms6168_init(const machine_t *);
 
 /* m_at_slot2.c */
 extern int machine_at_6gxu_init(const machine_t *);
+extern int machine_at_2gaxd_init(const machine_t *);
 extern int machine_at_s2dge_init(const machine_t *);
 extern int machine_at_fw6400gx_init(const machine_t *);
 
