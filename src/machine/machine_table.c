@@ -6646,6 +6646,46 @@ const machine_t machines[] = {
         .snd_device = NULL,
         .net_device = NULL
     },
+    /* Has a Lance LT38C41 with AMIKey F keyboard BIOS. Uses Mylex proprietary system BIOS. */
+    {
+        .name = "[SiS 471] Mylex MGI486",
+        .internal_name = "mgi486",
+        .type = MACHINE_TYPE_486_S3,
+        .chipset = MACHINE_CHIPSET_SIS_471,
+        .init = machine_at_mgi486_init,
+        .p1_handler = NULL,
+        .gpio_handler = NULL,
+        .available_flag = MACHINE_AVAILABLE,
+        .gpio_acpi_handler = NULL,
+        .cpu = {
+            .package = CPU_PKG_SOCKET3,
+            .block = CPU_BLOCK_NONE,
+            .min_bus = 0,
+            .max_bus = 0,
+            .min_voltage = 0,
+            .max_voltage = 0,
+            .min_multi = 0,
+            .max_multi = 0
+        },
+        .bus_flags = MACHINE_VLB,
+        .flags = MACHINE_APM,
+        .ram = {
+            .min = 1024,
+            .max = 65536,
+            .step = 1024
+        },
+        .nvrmask = 127,
+        .kbc_device = NULL,
+        .kbc_p1 = 0xff,
+        .gpio = 0xffffffff,
+        .gpio_acpi = 0xffffffff,
+        .device = NULL,
+        .fdc_device = NULL,
+        .sio_device = NULL,
+        .vid_device = NULL,
+        .snd_device = NULL,
+        .net_device = NULL
+    },
     /* TriGem AMIBIOS Pre-Color with TriGem AMI 'Z' keyboard controller */
     {
         .name = "[SiS 471] TriGem 486G",

@@ -2248,3 +2248,20 @@ machine_at_atc1762_init(const machine_t *model)
 
     return ret;
 }
+
+int
+machine_at_mgi486_init(const machine_t *model)
+{
+    int ret;
+
+    ret = bios_load_linear("roms/machines/mgi486/MGI613.BIN",
+                           0x000f0000, 65536, 0);
+
+    if (bios_only || !ret)
+        return ret;
+
+    machine_at_sis_85c471_common_init(model);
+    device_add(&keyboard_at_ami_device);
+
+    return ret;
+}
