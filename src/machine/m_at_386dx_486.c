@@ -2296,3 +2296,23 @@ machine_at_atc1762_init(const machine_t *model)
 
     return ret;
 }
+
+int
+machine_at_cat1015_init(const machine_t *model)
+{
+    int ret;
+
+    ret = bios_load_linear("roms/machines/cat1015/1015BIOS.ROM",
+                           0x000e0000, 131072, 0);
+
+    if (bios_only || !ret)
+        return ret;
+
+    machine_at_common_init(model);
+
+    device_add(&opti499_device);
+    device_add(&keyboard_ps2_pci_device);
+    device_add(&fdc37c665_ide_device);
+
+    return ret;
+}

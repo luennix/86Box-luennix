@@ -591,6 +591,7 @@ extern int machine_at_dvent4xx_init(const machine_t *);
 extern int machine_at_ecsal486_init(const machine_t *);
 extern int machine_at_ap4100aa_init(const machine_t *);
 extern int machine_at_atc1762_init(const machine_t *);
+extern int machine_at_cat1015_init(const machine_t *);
 
 /* m_at_commodore.c */
 extern int machine_at_cmdpc_init(const machine_t *);
